@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/memory.schema.json",
+  "title": "Memory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "scope",
+    "owner",
+    "source",
+    "content_ref",
+    "last_updated_at",
+    "retention_policy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "session",
+        "local",
+        "project",
+        "user"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "content_ref": {
+      "type": "string"
+    },
+    "last_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "retention_policy": {
+      "type": "string"
+    }
+  }
+}

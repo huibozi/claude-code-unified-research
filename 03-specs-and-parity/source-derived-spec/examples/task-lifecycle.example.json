@@ -1,0 +1,15 @@
+{
+  "id": "task-ultraplan-001",
+  "type": "remote-plan",
+  "owner_agent": "coordinator",
+  "origin": "slash-command:/plan",
+  "input": {
+    "goal": "Design an OpenClaw runtime migration slice",
+    "budget_minutes": 30
+  },
+  "status": "running",
+  "progress": 45,
+  "result_ref": "remote://ultraplan/task-ultraplan-001",
+  "notification_policy": "notify-on-complete",
+  "resume_strategy": "poll-and-resume"
+}

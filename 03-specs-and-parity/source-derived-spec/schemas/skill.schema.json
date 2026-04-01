@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/skill.schema.json",
+  "title": "Skill",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "source",
+    "description",
+    "when_to_use",
+    "allowed_tools",
+    "argument_hint",
+    "model_override",
+    "execution_context",
+    "path_conditions",
+    "hooks"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "when_to_use": {
+      "type": "string"
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "argument_hint": {
+      "type": "string"
+    },
+    "model_override": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "execution_context": {
+      "type": "string"
+    },
+    "path_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

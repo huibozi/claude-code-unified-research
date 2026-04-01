@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/policy.schema.json",
+  "title": "Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "scope",
+    "allow_rules",
+    "deny_rules",
+    "ask_rules",
+    "danger_filters",
+    "audit_requirements"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "allow_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deny_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ask_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "danger_filters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

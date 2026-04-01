@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/agent.schema.json",
+  "title": "Agent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "agent_type",
+    "source",
+    "model",
+    "effort",
+    "tools",
+    "skills",
+    "permission_mode",
+    "memory_scope",
+    "isolation",
+    "max_turns",
+    "hooks",
+    "required_connectors"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "agent_type": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "effort": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ]
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permission_mode": {
+      "type": "string"
+    },
+    "memory_scope": {
+      "type": "string",
+      "enum": [
+        "session",
+        "local",
+        "project",
+        "user",
+        "mixed"
+      ]
+    },
+    "isolation": {
+      "type": "string"
+    },
+    "max_turns": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_connectors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

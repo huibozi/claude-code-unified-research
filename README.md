@@ -2,7 +2,23 @@
 
 Research repository for studying Claude Code source artifacts, clean-room rewrites, parity work, and downstream runtime migration design.
 
-This repository intentionally excludes raw leaked source code.
+This repository intentionally excludes raw leaked source code. It stores provenance, comparison outputs, derived specifications, and migration planning artifacts only.
+
+## Status
+
+- Phase 1 research repository baseline: complete
+- Phase 2 unified runtime specification baseline: complete
+- Raw leaked source publication: intentionally excluded
+
+## Key Documents
+
+- `04-diffs-and-indexes/provenance-index/provenance.md`: source registry and handling policy
+- `04-diffs-and-indexes/manifests/current-comparison-summary.md`: current comparison baseline
+- `03-specs-and-parity/module-matrices/repository-capability-matrix.md`: cross-repository capability map
+- `03-specs-and-parity/source-derived-spec/README.md`: unified runtime spec entrypoint
+- `03-specs-and-parity/source-derived-spec/2026-04-01-unified-claude-code-research-runtime-design.md`: approved design record
+- `06-verification/reports/research-repo-health.md`: Phase 1 completion evidence
+- `06-verification/reports/runtime-spec-health.md`: Phase 2 completion evidence
 
 ## Structure
 
@@ -18,3 +34,4 @@ This repository intentionally excludes raw leaked source code.
 - Raw leaked source is not published in this repository.
 - Provenance for all comparison inputs is tracked in markdown.
 - Design and migration work must trace back to recorded source evidence.
+- Duplicate baselines are recorded once as evidence and explicitly labeled as duplicates.

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/task.schema.json",
+  "title": "Task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "owner_agent",
+    "origin",
+    "input",
+    "status",
+    "progress",
+    "result_ref",
+    "notification_policy",
+    "resume_strategy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "owner_agent": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "input": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "paused",
+        "completed",
+        "failed"
+      ]
+    },
+    "progress": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "result_ref": {
+      "type": "string"
+    },
+    "notification_policy": {
+      "type": "string"
+    },
+    "resume_strategy": {
+      "type": "string"
+    }
+  }
+}

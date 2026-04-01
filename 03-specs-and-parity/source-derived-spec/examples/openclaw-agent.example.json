@@ -1,0 +1,30 @@
+{
+  "id": "openclaw-coder",
+  "agent_type": "worker",
+  "source": "openclaw",
+  "model": "claude-4.6",
+  "effort": "high",
+  "tools": [
+    "shell",
+    "file_read",
+    "file_edit",
+    "mcp_resources"
+  ],
+  "skills": [
+    "repo-audit",
+    "task-execution"
+  ],
+  "permission_mode": "ask",
+  "memory_scope": "project",
+  "isolation": "workspace",
+  "max_turns": 40,
+  "hooks": [
+    "pre_tool_use",
+    "post_tool_use"
+  ],
+  "required_connectors": [
+    "filesystem",
+    "github",
+    "local-mcp"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "openai-docs",
+  "source": "codex",
+  "description": "Choose official OpenAI documentation paths and summarize the implementation guidance for the active task.",
+  "when_to_use": "Use when the task depends on official OpenAI API or model documentation.",
+  "allowed_tools": [
+    "openai_docs",
+    "web_search"
+  ],
+  "argument_hint": "Prefer the product area or model family as the main argument.",
+  "model_override": null,
+  "execution_context": "interactive-session",
+  "path_conditions": [
+    "docs/**",
+    "api/**"
+  ],
+  "hooks": [
+    "pre_skill_load"
+  ]
+}

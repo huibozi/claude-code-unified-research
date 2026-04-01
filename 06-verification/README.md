@@ -2,7 +2,16 @@
 
 This layer stores validation checks, health reports, and phase completion evidence.
 
-Rules:
+## Entry points
+
+- `checks/verify_phase1_phase2.py`: required Phase 1 and Phase 2 validation script
+- `reports/research-repo-health.md`: repository evidence health
+- `reports/runtime-spec-health.md`: runtime spec validation status
+- `reports/mapping-coverage.md`: mapping coverage summary
+- `reports/parity-conflicts.md`: unresolved semantic conflicts intentionally kept visible
+
+## Rules
 
 - Use this layer as the gate for marking work complete.
 - Keep repository health and runtime-spec health separate when reporting.
+- Treat validation output as evidence, not aspiration.

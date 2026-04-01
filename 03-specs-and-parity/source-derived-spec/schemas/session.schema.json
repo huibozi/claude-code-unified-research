@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/session.schema.json",
+  "title": "Session",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "runtime_id",
+    "agent_id",
+    "cwd",
+    "mode",
+    "model",
+    "permission_snapshot",
+    "memory_refs",
+    "transcript_ref",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "runtime_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "cwd": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "permission_snapshot": {
+      "type": "object"
+    },
+    "memory_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transcript_ref": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "active",
+        "paused",
+        "completed",
+        "failed"
+      ]
+    }
+  }
+}

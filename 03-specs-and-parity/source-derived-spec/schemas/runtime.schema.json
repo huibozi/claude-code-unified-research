@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/runtime.schema.json",
+  "title": "Runtime",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "version",
+    "registries",
+    "state_store",
+    "policy_store",
+    "connector_registry",
+    "feature_flags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "registries": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "state_store": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "location"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "policy_store": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "location"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "connector_registry": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "feature_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

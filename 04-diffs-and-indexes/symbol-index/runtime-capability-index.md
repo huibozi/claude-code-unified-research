@@ -1,0 +1,14 @@
+# Runtime Capability Index
+
+| Capability | Primary source evidence | Kuberwastaken evidence | instructkr evidence | Notes |
+|---|---|---|---|---|
+| Runtime bootstrap | `src/main.tsx`, `src/entrypoints/cli.tsx` | `spec/00_overview.md`, `src-rust/crates/cli/src/main.rs` | `src/main.py`, `src/runtime.py`, `rust/crates/rusty-claude-cli/src/main.rs` | all three expose a runtime entrypoint surface |
+| Session and query loop | `src/query.ts`, `src/QueryEngine.ts` | `spec/01_core_entry_query.md`, `src-rust/crates/query/src/lib.rs` | `src/query.py`, `src/query_engine.py`, `rust/crates/runtime/src/conversation.rs` | core execution semantics are visible in every repo |
+| Command registry | `src/commands/` | `spec/02_commands.md`, `src-rust/crates/commands/src/lib.rs` | `src/commands.py`, `rust/crates/commands/src/lib.rs` | breadth differs sharply |
+| Tool registry | `src/tools.ts`, `src/Tool.ts`, `src/tools/` | `spec/03_tools.md`, `src-rust/crates/tools/src/lib.rs` | `src/tools.py`, `src/Tool.py`, `rust/crates/tools/src/lib.rs` | tool semantics survive across every rewrite |
+| Skill system | `src/skills/loadSkillsDir.ts` | `src-rust/crates/tools/src/skill_tool.rs`, `src-rust/crates/tools/src/bundled_skills.rs` | `src/skills/`, `src/reference_data/tools_snapshot.json`, `PARITY.md` | TS remains the richest skill pipeline |
+| Agent orchestration | `src/tools/AgentTool/loadAgentsDir.ts`, `src/query.ts`, `src/tasks/` | `spec/05_components_agents_permissions_design.md`, `src-rust/crates/query/src/agent_tool.rs` | `src/tasks.py`, `src/coordinator/`, `rust/crates/runtime/src/conversation.rs` | coordination exists everywhere but depth varies |
+| Tasks and background work | `src/tasks/LocalAgentTask`, `src/tasks/RemoteAgentTask` | `src-rust/crates/tools/src/tasks.rs`, `src-rust/crates/query/src/cron_scheduler.rs` | `src/task.py`, `src/tasks.py` | instructkr and Kuberwastaken both compress the task model |
+| Connectors, MCP, and bridge | `src/services/mcp/client.ts`, `src/bridge/bridgeMain.ts` | `spec/09_bridge_cli_remote.md`, `src-rust/crates/mcp/src/lib.rs`, `src-rust/crates/bridge/src/lib.rs` | `rust/crates/runtime/src/mcp.rs`, `rust/crates/runtime/src/remote.rs`, `src/remote_runtime.py` | bridge and MCP survive as first-class concepts |
+| Memory and consolidation | `src/memdir/`, `src/skills/loadSkillsDir.ts`, `src/query.ts` | `src-rust/crates/core/src/memdir.rs`, `src-rust/crates/query/src/auto_dream.rs` | `src/memdir/`, `src/session_store.py`, `PARITY.md` | Kuberwastaken surfaces memory consolidation most explicitly |
+| Policy and permissions | `src/utils/permissions/permissionSetup.ts`, `src/services/tools/toolOrchestration.ts` | `spec/05_components_agents_permissions_design.md`, `src-rust/crates/core/src/lib.rs` | `src/permissions.py`, `rust/crates/runtime/src/permissions.rs`, `PARITY.md` | permission semantics are central in every repo |

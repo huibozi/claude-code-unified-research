@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/connector.schema.json",
+  "title": "Connector",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "transport",
+    "capabilities",
+    "auth_mode",
+    "resource_contracts",
+    "health_state"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "mcp",
+        "channel",
+        "bridge",
+        "webhook",
+        "remote-runtime",
+        "local-service"
+      ]
+    },
+    "transport": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "auth_mode": {
+      "type": "string"
+    },
+    "resource_contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "health_state": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "healthy",
+        "degraded",
+        "offline"
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://huibozi.github.io/claude-code-unified-research/tool.schema.json",
+  "title": "Tool",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "source",
+    "description",
+    "input_schema",
+    "output_schema",
+    "permission_requirements",
+    "is_concurrency_safe",
+    "side_effect_level"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "input_schema": {
+      "type": "object"
+    },
+    "output_schema": {
+      "type": "object"
+    },
+    "permission_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_concurrency_safe": {
+      "type": "boolean"
+    },
+    "side_effect_level": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  }
+}
