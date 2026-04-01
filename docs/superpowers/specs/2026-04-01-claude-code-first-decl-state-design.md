@@ -146,7 +146,7 @@ decl/skills/
 
 `skill.json` minimum fields:
 
-- `name`
+- `id`
 - `description`
 - `when_to_use`
 - `allowed_tools`
@@ -161,6 +161,8 @@ Rules:
 - `skill.md` is human-facing and stores scenarios, caveats, and examples
 - `skill.md` must not duplicate fields that already exist in `skill.json`
 - `description` stays concise and canonical in `skill.json`
+- `id` is the unique identifier used by state and registry references
+- `name` may exist as an optional display label, but it is not the stable identity field
 
 ### Commands
 
@@ -592,6 +594,8 @@ Recommended order:
    - stamp mirrored files with source markers
 5. `import-state`
    - normalize `sessions`, `projects`, history, and shell snapshots into `state/`
+   - for historical records that can be traced to the first declaration snapshot, write the initial `decl_generation` or `snapshot_ref`
+   - for historical records that cannot be traced reliably, leave those fields empty and emit a warning during validation
    - keep legacy runtime entrypoints alive as needed
 6. `steady-state`
    - users edit `decl/`
