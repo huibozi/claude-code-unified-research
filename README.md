@@ -8,6 +8,8 @@ This repository intentionally excludes raw leaked source code. It stores provena
 
 - Phase 1 research repository baseline: complete
 - Phase 2 unified runtime specification baseline: complete
+- Claude Code decl-state implementation baseline: complete
+- Codex Phase 1 decl-state implementation baseline: complete
 - Raw leaked source publication: intentionally excluded
 
 ## Key Documents
@@ -17,6 +19,9 @@ This repository intentionally excludes raw leaked source code. It stores provena
 - `03-specs-and-parity/module-matrices/repository-capability-matrix.md`: cross-repository capability map
 - `03-specs-and-parity/source-derived-spec/README.md`: unified runtime spec entrypoint
 - `03-specs-and-parity/source-derived-spec/2026-04-01-unified-claude-code-research-runtime-design.md`: approved design record
+- `docs/superpowers/specs/2026-04-01-codex-phase1-decl-state-mapping.md`: approved Codex Phase 1 mapping blueprint
+- `03-specs-and-parity/parity-reports/codex-phase1-execution-parity.md`: blueprint-to-runtime execution parity notes
+- `06-verification/reports/codex-phase1-implementation-health.md`: Codex Phase 1 execution and verification evidence
 - `06-verification/reports/research-repo-health.md`: Phase 1 completion evidence
 - `06-verification/reports/runtime-spec-health.md`: Phase 2 completion evidence
 

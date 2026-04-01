@@ -5,7 +5,7 @@ This layer stores the unified runtime concepts, schemas, mappings, parity report
 ## Subdirectories
 
 - `source-derived-spec/`: canonical concept docs, JSON schemas, mappings, and examples
-- `parity-reports/`: reserved for future deeper parity audits
+- `parity-reports/`: execution parity notes, semantic conflicts, and future deeper parity audits
 - `module-matrices/`: cross-repository capability matrices and summaries
 
 ## Rules

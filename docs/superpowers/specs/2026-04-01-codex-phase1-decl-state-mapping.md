@@ -2,6 +2,24 @@
 
 Date: 2026-04-01
 
+## Post-Implementation Note
+
+This blueprint has now been implemented against the live runtime at `C:\Users\huibozi\.codex`.
+
+Execution evidence:
+
+- `03-specs-and-parity/parity-reports/codex-phase1-execution-parity.md`
+- `06-verification/reports/codex-phase1-implementation-health.md`
+
+Observed result on 2026-04-02:
+
+- canonical `decl/`, `state/`, and `generated/` roots now exist in `~/.codex`
+- `codex-default` was seeded from `config.toml` with neutral core `isolation` and adapter notes for elevated sandboxing
+- the first managed skill cohort imported as `openai-docs`, `skill-creator`, and `skill-installer`
+- `rules/default.rules` now has a canonical wrapper under `decl/rules/default/`
+- normalized session and SQLite metadata indexes exist without mutating the native runtime stores
+- `validate_full_codex.py` completed with `exit_code = 0`
+
 ## Goal
 
 Map the live Codex runtime at `C:\Users\huibozi\.codex` onto the same declaration-state-generated model already proven out in `~/.claude`, without breaking Codex's current runtime behavior.

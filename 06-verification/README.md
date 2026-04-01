@@ -7,6 +7,7 @@ This layer stores validation checks, health reports, and phase completion eviden
 - `checks/verify_phase1_phase2.py`: required Phase 1 and Phase 2 validation script
 - `reports/research-repo-health.md`: repository evidence health
 - `reports/runtime-spec-health.md`: runtime spec validation status
+- `reports/codex-phase1-implementation-health.md`: live Codex Phase 1 execution and validation status
 - `reports/mapping-coverage.md`: mapping coverage summary
 - `reports/parity-conflicts.md`: unresolved semantic conflicts intentionally kept visible
 
