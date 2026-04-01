@@ -144,7 +144,7 @@ Phase 1 adds three new roots:
   state/
     sessions/
     indexes/
-    sqlite/
+      sqlite/
   generated/
     registries/
     reports/
@@ -156,6 +156,7 @@ Semantics:
 - `decl/` is the new canonical human-edited layer
 - `state/` is a normalized view over native Codex runtime state
 - `generated/` contains disposable outputs
+- `state/indexes/sqlite/` stores metadata views only; it does not store the live `.sqlite` files themselves
 
 Existing Codex runtime surfaces remain in place:
 
@@ -190,6 +191,7 @@ Adapter rules:
 - map `model_reasoning_effort` into core `compute_profile`
 - keep Codex-specific fields in an adapter note or renderer, not in the core schema
 - do not map `windows.sandbox = elevated` directly into core `isolation`; that belongs in adapter/runtime policy handling
+- keep core `isolation` as `none` for cross-runtime neutrality, but record the runtime difference in `_adapter_notes`
 
 Suggested first canonical payload:
 
@@ -205,7 +207,11 @@ Suggested first canonical payload:
   "memory_scope": "session",
   "isolation": "none",
   "max_turns": 0,
-  "required_mcp_servers": []
+  "required_mcp_servers": [],
+  "_adapter_notes": {
+    "runtime_sandbox": "elevated",
+    "note": "Codex runtime currently uses elevated Windows sandboxing. Core isolation remains none in the shared schema."
+  }
 }
 ```
 
@@ -234,6 +240,9 @@ Rules:
 - `skill.md` stores the human-facing body
 - existing `skills/` remains the runtime compatibility corpus
 - no attempt is made in Phase 1 to rewrite Codex's native skill loader
+- import only skills with a clear `when_to_use` style purpose or equivalent behavioral description
+- do not import skills that are only installation or setup instructions
+- do not import skills that depend on undeclared external services until those dependencies are modeled in canonical declarations
 
 ### Rule mapping
 
@@ -313,7 +322,7 @@ This is closer to an index and metadata view than to a raw archive copy.
 
 Phase 1 should add lightweight metadata views only, for example:
 
-- `state/sqlite/index.json`
+- `state/indexes/sqlite/index.json`
 
 Possible fields:
 
@@ -395,10 +404,10 @@ Checks:
 
 1. validate declarations
 2. rebuild registries
-3. build declaration snapshot
-4. backfill registry `decl_generation`
-5. rebuild state indexes from native Codex surfaces
-6. validate normalized state
+3. rebuild state indexes from native Codex surfaces
+4. validate normalized state
+5. build declaration snapshot
+6. backfill registry `decl_generation`
 7. summarize result with exit codes:
    - `0 = pass`
    - `1 = error`
@@ -423,10 +432,10 @@ That means Phase 1 is a mapping layer, not a runtime replacement.
 3. import a seeded default agent from `config.toml`
 4. import the first managed skill cohort from `skills/.system`
 5. import `rules/default.rules` into canonical rule declarations
-6. build registries and declaration snapshots
+6. build registries
 7. derive `state/sessions/index.json` from `session_index.jsonl` and session JSONL metadata
-8. derive `state/sqlite/index.json` from the native SQLite files
-9. emit reports and validation summaries
+8. derive `state/indexes/sqlite/index.json` from the native SQLite files
+9. build declaration snapshots and emit reports and validation summaries
 
 ## Success Criteria
 
