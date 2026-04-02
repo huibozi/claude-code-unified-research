@@ -81,6 +81,12 @@
         "type": "string"
       }
     },
+    "accepts_handoff_from": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "isolation": {
       "type": "string"
     },

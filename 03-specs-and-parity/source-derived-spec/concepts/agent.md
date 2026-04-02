@@ -32,6 +32,7 @@ Describes an execution identity with model choice, normalized compute profile, t
 - `name`
 - `disallowed_tools`
 - `memory_refs`
+- `accepts_handoff_from`
 - `adapter_notes`
 
 These optional fields capture runtime-specific facts that should not be flattened into the core identity:
@@ -40,6 +41,7 @@ These optional fields capture runtime-specific facts that should not be flattene
 - discovery provenance such as declared versus directory-discovered
 - runtime-specific storage or workspace locators
 - explicit mounted memory surfaces when a runtime exposes memory as addressable declarations
+- explicit initiator allowlists when a runtime exposes first-class handoff or delegation declarations
 
 ## Lifecycle or execution semantics
 
@@ -51,6 +53,7 @@ These optional fields capture runtime-specific facts that should not be flattene
 - When a runtime exposes first-class memory surfaces, `memory_refs[]` is the preferred fact source for agent memory attachment.
 - In that shape, `memory_scope` should be treated as a summary field rather than the only truth source.
 - `memory_scope = shared` is now part of the stable cross-runtime vocabulary for agents that mount shared durable memory without owning a private project-local store.
+- When a runtime exposes handoff or delegation declarations, `accepts_handoff_from[]` is the preferred fact source for which initiators a target agent may accept work from.
 
 ## Relationships to other objects
 
@@ -59,6 +62,7 @@ These optional fields capture runtime-specific facts that should not be flattene
 - Spawns or coordinates other agents through AgentTool-style facilities.
 - Session should reference the logical agent id, not a physical runtime directory.
 - Agent may reference shared `Memory` objects through `memory_refs[]` instead of relying only on one coarse `memory_scope` label.
+- Agent may also reference allowed handoff initiators through `accepts_handoff_from[]` when a runtime exposes a first-class coordination family.
 
 ## Evidence from tracked repositories
 
@@ -74,3 +78,4 @@ These optional fields capture runtime-specific facts that should not be flattene
 - Live downstream `.codex` and `.openclaw` work confirms that `compute_profile` is a better cross-runtime field than runtime-specific effort labels.
 - Live downstream OpenClaw work also confirms that agent definitions need adapter notes for physical locators and discovery provenance.
 - Live downstream OpenClaw Phase 3 work further confirms that `memory_refs[]` should be modeled explicitly and that `memory_scope` needs a stable `shared` variant.
+- Live downstream OpenClaw Phase 4 work further confirms that `accepts_handoff_from[]` is a stable agent-level reference pattern when runtimes expose explicit handoff declarations.

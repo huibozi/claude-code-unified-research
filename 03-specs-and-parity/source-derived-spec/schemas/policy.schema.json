@@ -130,21 +130,42 @@
             }
           },
           "action": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "type",
-              "agent_id"
-            ],
-            "properties": {
-              "type": {
-                "type": "string",
-                "const": "forward_to_agent"
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "agent_id"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "forward_to_agent"
+                  },
+                  "agent_id": {
+                    "type": "string"
+                  }
+                }
               },
-              "agent_id": {
-                "type": "string"
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "type",
+                  "handoff_policy_id"
+                ],
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "const": "handoff"
+                  },
+                  "handoff_policy_id": {
+                    "type": "string"
+                  }
+                }
               }
-            }
+            ]
           },
           "enabled": {
             "type": "boolean"

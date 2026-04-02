@@ -20,6 +20,9 @@
     "research-store",
     "shared-learnings"
   ],
+  "accepts_handoff_from": [
+    "daily"
+  ],
   "isolation": "none",
   "max_turns": 0,
   "hooks": [

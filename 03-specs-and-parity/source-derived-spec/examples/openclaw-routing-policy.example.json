@@ -22,8 +22,8 @@
         "context": "dm"
       },
       "action": {
-        "type": "forward_to_agent",
-        "agent_id": "personal"
+        "type": "handoff",
+        "handoff_policy_id": "daily-to-research"
       },
       "enabled": true,
       "priority": 50

@@ -35,7 +35,10 @@ Captures allow, deny, ask, danger-filter, and audit rules that shape what the ru
 - Audit requirements should survive even when execution is automated.
 - Some runtimes carry routing or binding rules next to policy-like concerns such as priority, scope, and dispatch constraints.
 - When a runtime exposes binding-like routing declarations, `routing_rules` may carry a structured `match` object with stable cross-runtime fields such as `channel`, `account`, `pattern`, `pattern_mode`, and `context`.
-- Current stable routing actions are modeled as a discriminated `action` object. The only normalized action variant currently promoted into the shared spec is `type = forward_to_agent` with `agent_id`.
+- Current stable routing actions are modeled as a discriminated `action` object. The normalized routing action variants currently promoted into the shared spec are:
+  - `type = forward_to_agent` with `agent_id`
+  - `type = handoff` with `handoff_policy_id`
+- The `handoff` action variant intentionally references an adapter-owned coordination family rather than promoting `handoff` to a new core object in the shared model.
 - Policy may also express stable access-control semantics for shared resources through:
   - `readers`
   - `writers`
@@ -67,3 +70,4 @@ Captures allow, deny, ask, danger-filter, and audit rules that shape what the ru
 - Live downstream OpenClaw work confirms that runtime-specific bindings can be carried as `Policy`-adjacent routing extensions without expanding the core object set.
 - Live downstream OpenClaw Phase 2 work further confirms that `pattern_mode = literal | glob | regex` and discriminated routing `action` payloads are stable enough to promote into the shared routing-extension semantics.
 - Live downstream OpenClaw Phase 3 work further confirms that `readers`, `writers`, and `shared_with` are stable access-control semantics, while `rebuild_rights` still behaves like an adapter-owned lifecycle extension.
+- Live downstream OpenClaw Phase 4 work further confirms that `action.type = handoff` is stable enough to promote into shared routing-action semantics, while the handoff policy declaration itself still fits better as an extension family than as a new core object.

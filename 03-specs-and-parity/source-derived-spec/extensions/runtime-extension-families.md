@@ -80,6 +80,28 @@ Current mapping:
 - retention belongs on `Memory`, not on `Policy`
 - canonical example: OpenClaw `decl/memory/*/memory.json`
 
+## 6. Coordination and handoff policy
+
+Some runtimes expose explicit coordination declarations that let one agent transfer work to another without promoting that coordination surface into a new core object.
+
+Current mapping:
+
+- modeled as an adapter-owned coordination family rather than as a new shared core concept
+- stable promoted coordination-adjacent fields include:
+  - `trigger.type = binding_ref | command_ref | cron_ref | manual`
+  - `trigger.binding_ref`
+  - `trigger.command_ref`
+  - `trigger.cron_ref`
+  - `context_transfer.memory_refs[]`
+  - `context_transfer.snapshot_ref`
+  - `context_transfer.session_ref`
+  - `acceptance_policy.timeout_seconds`
+  - `acceptance_policy.on_timeout = fail | next_target | escalate`
+- agent-like surfaces may advertise accepted initiators through `accepts_handoff_from[]`
+- routing-capable adapter surfaces may use `action.type = handoff` with `handoff_policy_id`
+- the coordination declaration itself remains adapter-owned until more than one runtime proves that a shared core object is justified
+- canonical example: OpenClaw `decl/handoffs/*/handoff.json`
+
 ## Rules
 
 - Core ten objects remain the semantic center of the spec.
