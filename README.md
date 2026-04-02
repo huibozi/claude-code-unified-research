@@ -11,6 +11,7 @@ This repository intentionally excludes raw leaked source code. It stores provena
 - Claude Code decl-state implementation baseline: complete
 - Codex Phase 1 decl-state implementation baseline: complete
 - OpenClaw Phase 1 decl-state implementation baseline: complete
+- OpenClaw Phase 2 routing surface implementation baseline: complete
 - Raw leaked source publication: intentionally excluded
 
 ## Key Documents
@@ -22,10 +23,13 @@ This repository intentionally excludes raw leaked source code. It stores provena
 - `03-specs-and-parity/source-derived-spec/2026-04-01-unified-claude-code-research-runtime-design.md`: approved design record
 - `docs/superpowers/specs/2026-04-01-codex-phase1-decl-state-mapping.md`: approved Codex Phase 1 mapping blueprint
 - `docs/superpowers/plans/2026-04-02-openclaw-phase1-decl-state-implementation.md`: approved OpenClaw Phase 1 implementation plan
+- `docs/superpowers/plans/2026-04-02-openclaw-phase2-routing-surface-implementation.md`: approved OpenClaw Phase 2 implementation plan
 - `03-specs-and-parity/parity-reports/codex-phase1-execution-parity.md`: blueprint-to-runtime execution parity notes
 - `03-specs-and-parity/parity-reports/openclaw-phase1-execution-parity.md`: OpenClaw Phase 1 runtime execution parity notes
+- `03-specs-and-parity/parity-reports/openclaw-phase2-execution-parity.md`: OpenClaw Phase 2 routing-surface execution parity notes
 - `06-verification/reports/codex-phase1-implementation-health.md`: Codex Phase 1 execution and verification evidence
 - `06-verification/reports/openclaw-phase1-implementation-health.md`: OpenClaw Phase 1 execution and verification evidence
+- `06-verification/reports/openclaw-phase2-implementation-health.md`: OpenClaw Phase 2 execution and verification evidence
 - `06-verification/reports/research-repo-health.md`: Phase 1 completion evidence
 - `06-verification/reports/runtime-spec-health.md`: Phase 2 completion evidence
 
