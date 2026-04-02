@@ -268,6 +268,9 @@ The unified runtime spec is organized into five groups:
 - `connector_registry`
 - `feature_flags`
 
+Optional support fields:
+- `compatibility_surfaces`
+
 `Session`
 
 - `id`
@@ -281,13 +284,17 @@ The unified runtime spec is organized into five groups:
 - `transcript_ref`
 - `status`
 
+Optional support fields:
+- `decl_generation`
+- `snapshot_ref`
+
 `Agent`
 
 - `id`
 - `agent_type`
 - `source`
 - `model`
-- `effort`
+- `compute_profile`
 - `tools`
 - `skills`
 - `permission_mode`
@@ -296,6 +303,11 @@ The unified runtime spec is organized into five groups:
 - `max_turns`
 - `hooks`
 - `required_connectors`
+
+Optional support fields:
+- `name`
+- `disallowed_tools`
+- `adapter_notes`
 
 `Command`
 

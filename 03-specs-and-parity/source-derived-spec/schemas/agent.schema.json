@@ -9,7 +9,7 @@
     "agent_type",
     "source",
     "model",
-    "effort",
+    "compute_profile",
     "tools",
     "skills",
     "permission_mode",
@@ -29,19 +29,27 @@
     "source": {
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
     "model": {
       "type": "string"
     },
-    "effort": {
+    "compute_profile": {
       "type": "string",
       "enum": [
         "low",
-        "medium",
-        "high",
-        "xhigh"
+        "balanced",
+        "high"
       ]
     },
     "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "disallowed_tools": {
       "type": "array",
       "items": {
         "type": "string"
@@ -71,7 +79,7 @@
     },
     "max_turns": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 0
     },
     "hooks": {
       "type": "array",
@@ -84,6 +92,9 @@
       "items": {
         "type": "string"
       }
+    },
+    "adapter_notes": {
+      "type": "object"
     }
   }
 }

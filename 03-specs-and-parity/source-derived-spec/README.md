@@ -31,6 +31,17 @@ This directory turns the recorded source evidence into one unified runtime model
 - `examples/`: schema-valid example payloads for downstream runtime work
 - `2026-04-01-unified-claude-code-research-runtime-design.md`: the approved design record
 
+## Downstream feedback
+
+Live downstream implementations in `~/.codex` and `~/.openclaw` feed back into this layer when they clarify real cross-runtime adapter needs.
+
+Current clarified adapter semantics include:
+
+- normalized `compute_profile` instead of runtime-specific reasoning-effort labels
+- runtime compatibility surfaces that coexist with canonical declarations
+- logical agent identities that may differ from physical runtime directories
+- declaration snapshots and `decl_generation` metadata for state manifests
+
 ## Reading order
 
 1. Read `../module-matrices/repository-capability-matrix.md`

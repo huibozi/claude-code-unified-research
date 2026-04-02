@@ -76,6 +76,29 @@
       "items": {
         "type": "string"
       }
+    },
+    "compatibility_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "role",
+          "format"
+        ],
+        "properties": {
+          "location": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

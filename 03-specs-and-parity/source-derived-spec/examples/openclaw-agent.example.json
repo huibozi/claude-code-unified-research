@@ -3,7 +3,7 @@
   "agent_type": "worker",
   "source": "openclaw",
   "model": "claude-4.6",
-  "effort": "high",
+  "compute_profile": "balanced",
   "tools": [
     "shell",
     "file_read",
@@ -16,8 +16,8 @@
   ],
   "permission_mode": "ask",
   "memory_scope": "project",
-  "isolation": "workspace",
-  "max_turns": 40,
+  "isolation": "none",
+  "max_turns": 0,
   "hooks": [
     "pre_tool_use",
     "post_tool_use"
@@ -26,5 +26,10 @@
     "filesystem",
     "github",
     "local-mcp"
-  ]
+  ],
+  "adapter_notes": {
+    "runtime_config_surface": "openclaw.json",
+    "physical_agent_dir": "C:\\Users\\huibozi\\.openclaw\\agents\\research\\agent",
+    "discovery_mode": "listed"
+  }
 }

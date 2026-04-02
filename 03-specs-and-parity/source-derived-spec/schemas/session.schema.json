@@ -47,6 +47,15 @@
     "transcript_ref": {
       "type": "string"
     },
+    "decl_generation": {
+      "type": "string"
+    },
+    "snapshot_ref": {
+      "type": "string"
+    },
+    "adapter_notes": {
+      "type": "object"
+    },
     "status": {
       "type": "string",
       "enum": [
