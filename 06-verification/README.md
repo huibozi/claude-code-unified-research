@@ -8,6 +8,7 @@ This layer stores validation checks, health reports, and phase completion eviden
 - `reports/research-repo-health.md`: repository evidence health
 - `reports/runtime-spec-health.md`: runtime spec validation status
 - `reports/codex-phase1-implementation-health.md`: live Codex Phase 1 execution and validation status
+- `reports/openclaw-phase1-implementation-health.md`: live OpenClaw Phase 1 execution and validation status
 - `reports/mapping-coverage.md`: mapping coverage summary
 - `reports/parity-conflicts.md`: unresolved semantic conflicts intentionally kept visible
 

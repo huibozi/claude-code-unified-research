@@ -8,6 +8,11 @@ This layer stores the unified runtime concepts, schemas, mappings, parity report
 - `parity-reports/`: execution parity notes, semantic conflicts, and future deeper parity audits
 - `module-matrices/`: cross-repository capability matrices and summaries
 
+## Current parity reports
+
+- `parity-reports/codex-phase1-execution-parity.md`: live Codex Phase 1 execution parity
+- `parity-reports/openclaw-phase1-execution-parity.md`: live OpenClaw Phase 1 execution parity
+
 ## Rules
 
 - Reference evidence instead of embedding copied source.
