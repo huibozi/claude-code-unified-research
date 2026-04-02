@@ -99,6 +99,10 @@ Current mapping:
   - `acceptance_policy.on_timeout = fail | next_target | escalate`
 - agent-like surfaces may advertise accepted initiators through `accepts_handoff_from[]`
 - routing-capable adapter surfaces may use `action.type = handoff` with `handoff_policy_id`
+- execution-capable runtimes may realize this family through a plugin bridge or comparable adapter-owned execution layer rather than by promoting handoff into a shared core object
+- when the execution layer launches a target run, session identity is a caller-owned runtime concern:
+  - `session_ref` or equivalent session identity should be allocated before the target run call
+  - execution traces should then persist that preallocated session identity beside the runtime run id
 - the coordination declaration itself remains adapter-owned until more than one runtime proves that a shared core object is justified
 - canonical example: OpenClaw `decl/handoffs/*/handoff.json`
 

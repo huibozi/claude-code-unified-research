@@ -54,6 +54,9 @@ These optional fields capture runtime-specific facts that should not be flattene
 - In that shape, `memory_scope` should be treated as a summary field rather than the only truth source.
 - `memory_scope = shared` is now part of the stable cross-runtime vocabulary for agents that mount shared durable memory without owning a private project-local store.
 - When a runtime exposes handoff or delegation declarations, `accepts_handoff_from[]` is the preferred fact source for which initiators a target agent may accept work from.
+- In that coordination shape, an agent may appear as either:
+  - a handoff initiator that transfers work outward
+  - a handoff target that declares accepted upstream initiators through `accepts_handoff_from[]`
 
 ## Relationships to other objects
 
