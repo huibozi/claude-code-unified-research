@@ -15,7 +15,11 @@
     "task-execution"
   ],
   "permission_mode": "ask",
-  "memory_scope": "project",
+  "memory_scope": "mixed",
+  "memory_refs": [
+    "research-store",
+    "shared-learnings"
+  ],
   "isolation": "none",
   "max_turns": 0,
   "hooks": [

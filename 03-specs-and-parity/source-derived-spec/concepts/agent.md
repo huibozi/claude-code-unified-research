@@ -31,6 +31,7 @@ Describes an execution identity with model choice, normalized compute profile, t
 
 - `name`
 - `disallowed_tools`
+- `memory_refs`
 - `adapter_notes`
 
 These optional fields capture runtime-specific facts that should not be flattened into the core identity:
@@ -38,6 +39,7 @@ These optional fields capture runtime-specific facts that should not be flattene
 - logical id versus physical runtime directory
 - discovery provenance such as declared versus directory-discovered
 - runtime-specific storage or workspace locators
+- explicit mounted memory surfaces when a runtime exposes memory as addressable declarations
 
 ## Lifecycle or execution semantics
 
@@ -46,6 +48,9 @@ These optional fields capture runtime-specific facts that should not be flattene
 - Permission and isolation rules are part of the agent contract, not an afterthought.
 - The canonical `id` is a logical execution identity. It may differ from the physical directory or runtime-owned storage path used by one downstream implementation.
 - Downstream importers may need hybrid discovery, combining explicit agent lists with directory-backed runtime surfaces.
+- When a runtime exposes first-class memory surfaces, `memory_refs[]` is the preferred fact source for agent memory attachment.
+- In that shape, `memory_scope` should be treated as a summary field rather than the only truth source.
+- `memory_scope = shared` is now part of the stable cross-runtime vocabulary for agents that mount shared durable memory without owning a private project-local store.
 
 ## Relationships to other objects
 
@@ -53,6 +58,7 @@ These optional fields capture runtime-specific facts that should not be flattene
 - Consumes Tool, Skill, Connector, Memory, and Policy objects.
 - Spawns or coordinates other agents through AgentTool-style facilities.
 - Session should reference the logical agent id, not a physical runtime directory.
+- Agent may reference shared `Memory` objects through `memory_refs[]` instead of relying only on one coarse `memory_scope` label.
 
 ## Evidence from tracked repositories
 
@@ -67,3 +73,4 @@ These optional fields capture runtime-specific facts that should not be flattene
 - instructkr exposes coordinator and task surfaces, but not full parity with the TS agent configuration pipeline.
 - Live downstream `.codex` and `.openclaw` work confirms that `compute_profile` is a better cross-runtime field than runtime-specific effort labels.
 - Live downstream OpenClaw work also confirms that agent definitions need adapter notes for physical locators and discovery provenance.
+- Live downstream OpenClaw Phase 3 work further confirms that `memory_refs[]` should be modeled explicitly and that `memory_scope` needs a stable `shared` variant.

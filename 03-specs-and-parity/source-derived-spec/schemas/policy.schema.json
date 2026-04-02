@@ -58,6 +58,24 @@
         "type": "string"
       }
     },
+    "readers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "shared_with": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "routing_rules": {
       "type": "array",
       "items": {

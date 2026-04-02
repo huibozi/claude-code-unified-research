@@ -71,8 +71,15 @@
         "local",
         "project",
         "user",
+        "shared",
         "mixed"
       ]
+    },
+    "memory_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "isolation": {
       "type": "string"

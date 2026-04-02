@@ -56,6 +56,30 @@ Current mapping:
 - modeled as connector-adjacent extension metadata through `provider_plugin`
 - canonical example: OpenClaw `decl/plugins/*/plugin.json` feeding channel or provider surfaces
 
+## 5. Memory surfaces and access policy
+
+Some runtimes expose memory as explicit durable surfaces instead of one implicit memory bucket.
+
+Current mapping:
+
+- modeled as `Memory` declarations with promoted shared fields such as:
+  - `kind`
+  - `store_kind`
+  - `indexing_mode`
+  - `reader_refs[]`
+  - `writer_refs[]`
+  - `policy_refs[]`
+- runtime locator fields such as `source_roots[]` and `sqlite_path` are allowed, but remain storage locators rather than the semantic center of `Memory`
+- agent-like surfaces may reference shared memory declarations through `memory_refs[]`
+- memory-capable surfaces may reference shared policy through `policy_refs[]`
+- access-control policy fields promoted into the shared model currently include:
+  - `readers[]`
+  - `writers[]`
+  - `shared_with[]`
+- `rebuild_rights[]` remains an OpenClaw adapter extension rather than a promoted shared policy field
+- retention belongs on `Memory`, not on `Policy`
+- canonical example: OpenClaw `decl/memory/*/memory.json`
+
 ## Rules
 
 - Core ten objects remain the semantic center of the spec.

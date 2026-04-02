@@ -41,6 +41,60 @@
     },
     "retention_policy": {
       "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "file-store",
+        "sqlite-index",
+        "hybrid"
+      ]
+    },
+    "store_kind": {
+      "type": "string",
+      "enum": [
+        "retrieval",
+        "kv",
+        "append-log"
+      ]
+    },
+    "source_roots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sqlite_path": {
+      "type": "string"
+    },
+    "indexing_mode": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "auto",
+        "scheduled"
+      ]
+    },
+    "reader_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "writer_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "retention": {
+      "type": "object"
     }
   }
 }
