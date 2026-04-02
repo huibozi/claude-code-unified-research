@@ -1,0 +1,31 @@
+{
+  "id": "openclaw-routing-default",
+  "description": "Runtime-level routing policy carrying OpenClaw binding rules without expanding the core object model.",
+  "scope": "runtime",
+  "priority": 50,
+  "allow_rules": [],
+  "deny_rules": [],
+  "ask_rules": [],
+  "danger_filters": [],
+  "audit_requirements": [
+    "retain-routing-audit-log"
+  ],
+  "routing_rules": [
+    {
+      "id": "binding-personal-0",
+      "description": "Route personal mentions and direct messages to the personal agent.",
+      "match": {
+        "channel": "telegram-main",
+        "message_scope": "private-or-mentioned",
+        "event_type": "message"
+      },
+      "target_agent": "personal",
+      "enabled": true,
+      "priority": 50
+    }
+  ],
+  "adapter_notes": {
+    "bindings_surface": "decl/bindings",
+    "routing_family": "openclaw-bindings"
+  }
+}

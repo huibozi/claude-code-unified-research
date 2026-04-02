@@ -2,47 +2,115 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://huibozi.github.io/claude-code-unified-research/command.schema.json",
   "title": "Command",
-  "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "aliases",
-    "source",
-    "kind",
-    "description",
-    "input_contract",
-    "handler_ref",
-    "enabled_when"
-  ],
-  "properties": {
-    "name": {
-      "type": "string"
+  "oneOf": [
+    {
+      "$ref": "#/$defs/named_entrypoint"
     },
-    "aliases": {
-      "type": "array",
-      "items": {
-        "type": "string"
+    {
+      "$ref": "#/$defs/settings_surface"
+    }
+  ],
+  "$defs": {
+    "shared": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "adapter_notes": {
+          "type": "object"
+        }
       }
     },
-    "source": {
-      "type": "string"
+    "named_entrypoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "aliases",
+        "source",
+        "kind",
+        "description",
+        "input_contract",
+        "handler_ref",
+        "enabled_when"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "input_contract": {
+          "type": "object"
+        },
+        "handler_ref": {
+          "type": "string"
+        },
+        "enabled_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adapter_notes": {
+          "type": "object"
+        }
+      }
     },
-    "kind": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "input_contract": {
-      "type": "object"
-    },
-    "handler_ref": {
-      "type": "string"
-    },
-    "enabled_when": {
-      "type": "array",
-      "items": {
-        "type": "string"
+    "settings_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source",
+        "kind",
+        "description",
+        "adapter_shape",
+        "settings_payload"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "adapter_shape": {
+          "type": "string",
+          "const": "settings-surface"
+        },
+        "settings_payload": {
+          "type": "object"
+        },
+        "adapter_notes": {
+          "type": "object"
+        }
       }
     }
   }

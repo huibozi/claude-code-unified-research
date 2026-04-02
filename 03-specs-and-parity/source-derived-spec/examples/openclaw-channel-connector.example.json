@@ -1,0 +1,36 @@
+{
+  "id": "telegram-main",
+  "kind": "channel",
+  "transport": "internal",
+  "description": "OpenClaw Telegram channel connector with nested runtime account metadata.",
+  "capabilities": [
+    "message.receive",
+    "message.send",
+    "routing"
+  ],
+  "auth_mode": "token",
+  "auth_refs": [
+    "OPENCLAW_TELEGRAM_BOT_TOKEN"
+  ],
+  "resource_contracts": [
+    "channel.message.inbound",
+    "channel.message.outbound"
+  ],
+  "health_state": "unknown",
+  "binding_refs": [
+    "binding-personal-0"
+  ],
+  "provider_plugin": "telegram-provider",
+  "adapter_config": {
+    "account_id": "main",
+    "chat_scopes": [
+      "private",
+      "group"
+    ],
+    "route_mode": "mention-or-dm"
+  },
+  "adapter_notes": {
+    "canonical_decl_path": "decl/channels/telegram-main/channel.json",
+    "source_surface": "~/.openclaw/openclaw.json#channels.telegram-main"
+  }
+}

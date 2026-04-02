@@ -28,6 +28,9 @@
         "local-service"
       ]
     },
+    "description": {
+      "type": "string"
+    },
     "transport": {
       "type": "string"
     },
@@ -39,6 +42,12 @@
     },
     "auth_mode": {
       "type": "string"
+    },
+    "auth_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "resource_contracts": {
       "type": "array",
@@ -54,6 +63,21 @@
         "degraded",
         "offline"
       ]
+    },
+    "adapter_config": {
+      "type": "object"
+    },
+    "provider_plugin": {
+      "type": "string"
+    },
+    "binding_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "adapter_notes": {
+      "type": "object"
     }
   }
 }

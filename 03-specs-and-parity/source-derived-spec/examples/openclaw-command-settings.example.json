@@ -1,0 +1,16 @@
+{
+  "id": "openclaw-command-settings",
+  "source": "~/.openclaw/openclaw.json#commands",
+  "kind": "settings",
+  "description": "Singleton command settings surface imported from the OpenClaw runtime config.",
+  "adapter_shape": "settings-surface",
+  "settings_payload": {
+    "default_prefix": "/",
+    "enable_help": true,
+    "allow_channel_invocation": true
+  },
+  "adapter_notes": {
+    "compatibility_surface": "~/.openclaw/openclaw.json",
+    "canonical_decl_path": "decl/commands/_settings.json"
+  }
+}

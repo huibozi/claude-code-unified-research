@@ -6,7 +6,9 @@
   "additionalProperties": false,
   "required": [
     "id",
+    "description",
     "scope",
+    "priority",
     "allow_rules",
     "deny_rules",
     "ask_rules",
@@ -17,8 +19,14 @@
     "id": {
       "type": "string"
     },
+    "description": {
+      "type": "string"
+    },
     "scope": {
       "type": "string"
+    },
+    "priority": {
+      "type": "integer"
     },
     "allow_rules": {
       "type": "array",
@@ -49,6 +57,43 @@
       "items": {
         "type": "string"
       }
+    },
+    "routing_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "match",
+          "target_agent",
+          "enabled",
+          "priority"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "match": {
+            "type": "object"
+          },
+          "target_agent": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "adapter_notes": {
+      "type": "object"
     }
   }
 }

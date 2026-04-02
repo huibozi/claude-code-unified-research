@@ -217,6 +217,17 @@ The unified runtime spec is organized into five groups:
 - indexes
 - specifications
 
+### Extension families
+
+Runtime-specific declaration families should attach to the ten core objects through adapter-aware fields rather than silently expanding the object model.
+
+Current tracked extension families are:
+
+- command settings surfaces attached to `Command`
+- routing bindings attached to `Policy`
+- channel connectors attached to `Connector`
+- plugin-backed provider metadata attached near `Connector`
+
 ### Spec directory shape
 
 ```text
@@ -249,8 +260,13 @@ The unified runtime spec is organized into five groups:
 |   |   |-- source-to-spec.md
 |   |   |-- kuber-to-spec.md
 |   |   `-- instructkr-to-spec.md
+|   |-- extensions/
+|   |   `-- runtime-extension-families.md
 |   `-- examples/
 |       |-- openclaw-agent.example.json
+|       |-- openclaw-command-settings.example.json
+|       |-- openclaw-channel-connector.example.json
+|       |-- openclaw-routing-policy.example.json
 |       |-- codex-skill.example.json
 |       `-- task-lifecycle.example.json
 ```
@@ -311,14 +327,26 @@ Optional support fields:
 
 `Command`
 
-- `name`
-- `aliases`
 - `source`
 - `kind`
 - `description`
+
+Variant A: named entrypoint
+
+- `name`
+- `aliases`
 - `input_contract`
 - `handler_ref`
 - `enabled_when`
+
+Variant B: settings surface
+
+- `id`
+- `adapter_shape`
+- `settings_payload`
+
+Optional support fields:
+- `adapter_notes`
 
 `Tool`
 
@@ -377,15 +405,29 @@ Optional support fields:
 - `resource_contracts`
 - `health_state`
 
+Optional support fields:
+- `description`
+- `auth_refs`
+- `adapter_config`
+- `provider_plugin`
+- `binding_refs`
+- `adapter_notes`
+
 `Policy`
 
 - `id`
+- `description`
 - `scope`
+- `priority`
 - `allow_rules`
 - `deny_rules`
 - `ask_rules`
 - `danger_filters`
 - `audit_requirements`
+
+Optional support fields:
+- `routing_rules`
+- `adapter_notes`
 
 ### Mapping requirements
 
