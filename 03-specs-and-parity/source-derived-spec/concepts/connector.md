@@ -37,6 +37,7 @@ Represents external integrations such as MCP servers, bridges, remote runtimes, 
 - Runtime and session layers may filter connectors based on policy and environment.
 - Channel connectors often carry nested account or group configuration that should remain in adapter-owned config fields.
 - Plugin-backed capability surfaces may appear as connector-adjacent metadata rather than as standalone transport objects.
+- Channel-like routing surfaces may reference connectors indirectly through `connector_refs[]` while keeping their own runtime-specific sub-surfaces in adapter-owned fields.
 
 ## Relationships to other objects
 
@@ -44,6 +45,7 @@ Represents external integrations such as MCP servers, bridges, remote runtimes, 
 - Often back Tool execution and remote Task flows.
 - Constrained by Policy and surfaced to Session status.
 - May be targeted by Policy routing rules or referenced by runtime-specific binding families.
+- May be referenced by adapter-owned routing surfaces through `connector_refs[]` without forcing those routing surfaces into the core object set.
 
 ## Evidence from tracked repositories
 
@@ -57,3 +59,4 @@ Represents external integrations such as MCP servers, bridges, remote runtimes, 
 - The source baseline remains the richest reference for MCP client lifecycle and bridge integration.
 - Both rewrites prove that connectors can be normalized as a first-class runtime object.
 - Live downstream OpenClaw work confirms that channels are a strong `Connector` subtype and that plugin/provider linkage needs adapter-aware connector metadata.
+- Live downstream OpenClaw Phase 2 work confirms that explicit connector reference edges are a stable shared pattern even when the owning channel-like surfaces remain adapter-specific.

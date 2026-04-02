@@ -24,6 +24,14 @@ Some runtimes expose routing declarations that match an incoming channel or even
 Current mapping:
 
 - modeled as `Policy`-adjacent routing extensions using `routing_rules`
+- stable promoted routing fields include:
+  - `match.channel`
+  - `match.account`
+  - `match.pattern`
+  - `match.pattern_mode = literal | glob | regex`
+  - `match.context`
+  - `action.type = forward_to_agent`
+  - `action.agent_id`
 - canonical example: OpenClaw `decl/bindings/*/binding.json`
 
 ## 3. Channel connectors
@@ -34,6 +42,9 @@ Current mapping:
 
 - modeled as `Connector` variants with `kind = channel`
 - nested runtime-specific fields remain under `adapter_config`
+- channel-like adapter surfaces may carry runtime-owned sub-surfaces such as `accounts` or `groups`, but those names remain adapter examples rather than promoted shared fields
+- channel-like adapter surfaces may reference shared connectors with `connector_refs[]`
+- channel-like adapter surfaces may reference shared policies with `policy_refs[]`
 - canonical example: OpenClaw `decl/channels/*/channel.json`
 
 ## 4. Plugin-backed providers

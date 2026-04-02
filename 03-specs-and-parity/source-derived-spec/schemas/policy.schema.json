@@ -66,7 +66,7 @@
         "required": [
           "id",
           "match",
-          "target_agent",
+          "action",
           "enabled",
           "priority"
         ],
@@ -78,10 +78,55 @@
             "type": "string"
           },
           "match": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "channel"
+            ],
+            "properties": {
+              "channel": {
+                "type": "string"
+              },
+              "account": {
+                "type": "string"
+              },
+              "pattern": {
+                "type": "string"
+              },
+              "pattern_mode": {
+                "type": "string",
+                "enum": [
+                  "literal",
+                  "glob",
+                  "regex"
+                ]
+              },
+              "context": {
+                "type": "string",
+                "enum": [
+                  "dm",
+                  "group",
+                  "all"
+                ]
+              }
+            }
           },
-          "target_agent": {
-            "type": "string"
+          "action": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "agent_id"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "const": "forward_to_agent"
+              },
+              "agent_id": {
+                "type": "string"
+              }
+            }
           },
           "enabled": {
             "type": "boolean"

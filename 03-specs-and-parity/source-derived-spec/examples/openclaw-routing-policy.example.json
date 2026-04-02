@@ -16,10 +16,15 @@
       "description": "Route personal mentions and direct messages to the personal agent.",
       "match": {
         "channel": "telegram-main",
-        "message_scope": "private-or-mentioned",
-        "event_type": "message"
+        "account": "personal",
+        "pattern": "*",
+        "pattern_mode": "glob",
+        "context": "dm"
       },
-      "target_agent": "personal",
+      "action": {
+        "type": "forward_to_agent",
+        "agent_id": "personal"
+      },
       "enabled": true,
       "priority": 50
     }
