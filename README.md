@@ -21,6 +21,7 @@ This repository intentionally excludes raw leaked source code. It stores provena
 - `03-specs-and-parity/module-matrices/repository-capability-matrix.md`: cross-repository capability map
 - `03-specs-and-parity/source-derived-spec/README.md`: unified runtime spec entrypoint
 - `03-specs-and-parity/source-derived-spec/2026-04-01-unified-claude-code-research-runtime-design.md`: approved design record
+- `docs/superpowers/specs/2026-04-02-three-runtime-rollout-map.md`: current decision map across Claude Code, Codex, and OpenClaw
 - `docs/superpowers/specs/2026-04-01-codex-phase1-decl-state-mapping.md`: approved Codex Phase 1 mapping blueprint
 - `docs/superpowers/plans/2026-04-02-openclaw-phase1-decl-state-implementation.md`: approved OpenClaw Phase 1 implementation plan
 - `docs/superpowers/plans/2026-04-02-openclaw-phase2-routing-surface-implementation.md`: approved OpenClaw Phase 2 implementation plan
