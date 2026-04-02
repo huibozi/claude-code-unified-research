@@ -12,6 +12,7 @@ This layer stores validation checks, health reports, and phase completion eviden
 - `reports/openclaw-phase2-implementation-health.md`: live OpenClaw Phase 2 execution and validation status
 - `reports/openclaw-phase3-implementation-health.md`: live OpenClaw Phase 3 execution and validation status
 - `reports/openclaw-phase4-implementation-health.md`: live OpenClaw Phase 4 execution and validation status
+- `reports/openclaw-phase5-implementation-health.md`: live OpenClaw Phase 5 execution and validation status
 - `reports/mapping-coverage.md`: mapping coverage summary
 - `reports/parity-conflicts.md`: unresolved semantic conflicts intentionally kept visible
 

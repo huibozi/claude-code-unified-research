@@ -15,6 +15,7 @@ This layer stores the unified runtime concepts, schemas, mappings, parity report
 - `parity-reports/openclaw-phase2-execution-parity.md`: live OpenClaw Phase 2 routing-surface execution parity
 - `parity-reports/openclaw-phase3-execution-parity.md`: live OpenClaw Phase 3 memory-catalog execution parity
 - `parity-reports/openclaw-phase4-execution-parity.md`: live OpenClaw Phase 4 handoff / delegation execution parity
+- `parity-reports/openclaw-phase5-execution-parity.md`: live OpenClaw Phase 5 handoff execution runtime parity
 
 ## Rules
 
